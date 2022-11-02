@@ -13,11 +13,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
   @override
   void initState() {
     super.initState();
-    final countriesList = <Country>[];
-    for (final country in countries) {
-      countriesList.add(Country.fromJson(country));
-    }
-    _countries = countriesList;
+    _countries = countries.map<Country>((country) => Country.fromJson(country)).toList();
   }
 
   @override
