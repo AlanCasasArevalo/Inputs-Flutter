@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         locale: DevicePreview.locale(context),
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          // Este primarySwatch solo trabaja con colores de tipo MaterialColor no con colores
+          primarySwatch: Colors.green,
         ),
         routes: appRoutes,
         home: HomePage(),
