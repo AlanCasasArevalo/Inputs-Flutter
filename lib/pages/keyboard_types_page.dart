@@ -18,6 +18,45 @@ class KeyboardTypesPage extends StatelessWidget {
               border: OutlineInputBorder(),
             ),
           ),
+          SizedBox(
+            height: 16,
+          ),
+          TextField(
+            keyboardType: TextInputType.phone,
+            decoration: InputDecoration(
+              label: Text("Phone"),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          TextField(
+            keyboardType: TextInputType.numberWithOptions(
+              // Para pasar decimales
+              decimal: true,
+              // Para poder anotar simbolos
+              signed: true
+            ),
+            decoration: InputDecoration(
+              label: Text("number"),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          TextField(
+            // No te corrige las palabras y te elimina las sugerencias en iOS
+            autocorrect: false,
+            // Te elimina las sugerencias en Android
+            enableSuggestions: true,
+            keyboardType: TextInputType.name,
+            decoration: InputDecoration(
+              label: Text("Name"),
+              border: OutlineInputBorder(),
+            ),
+          ),
         ],
       ),
     );
