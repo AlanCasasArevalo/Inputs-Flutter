@@ -56,6 +56,12 @@ class _TextFieldPageState extends State<TextFieldPage> {
                 color: Colors.black54,
               ),
             ),
+              // Cambiamos la linea del borde del textfield cuando el textfield NO esta habilitado
+            disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black12,
+              ),
+            )
           ),
           onChanged: (textFieldChanged) {
             _query = textFieldChanged;
