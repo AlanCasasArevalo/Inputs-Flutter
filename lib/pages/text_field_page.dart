@@ -36,6 +36,8 @@ class _TextFieldPageState extends State<TextFieldPage> {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
         title: TextField(
+          // Se desactiva el textfield
+          enabled: false,
           // El parametro decoration nos permite customizar el textfield
           decoration: InputDecoration(
             // Cambiamos el padding del cursor para que se muestre a 8 pixeles del comienzo del textfield
