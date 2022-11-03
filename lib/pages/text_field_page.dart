@@ -9,24 +9,46 @@ class TextFieldPage extends StatefulWidget {
 
 class _TextFieldPageState extends State<TextFieldPage> {
   late final List<Country> _countries;
+  String _query = '';
 
   @override
   void initState() {
     super.initState();
-    _countries = countries.map<Country>((country) => Country.fromJson(country)).toList();
+    _countries =
+        countries.map<Country>((country) => Country.fromJson(country)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
+    late final List<Country> filteredList;
+
+    if (_query.isEmpty) {
+      filteredList = _countries;
+    } else {
+      filteredList = _countries
+          .where((country) => country.name.toLowerCase().contains(_query.toLowerCase()))
+          .toList();
+    }
+
     return Scaffold(
-      appBar: AppBar(),
-      body: ListView.builder(itemBuilder: (context, index) {
-        final country = _countries[index];
-        return Container(
-          color: Colors.green,
-          child: Text(country.name),
-        );
-      }, itemCount: _countries.length,),
+      appBar: AppBar(
+        title: TextField(
+          onChanged: (textFieldChanged) {
+            _query = textFieldChanged;
+            setState(() {});
+          },
+        ),
+      ),
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          final country = filteredList[index];
+          return Container(
+            color: Colors.green,
+            child: Text(country.name),
+          );
+        },
+        itemCount: filteredList.length,
+      ),
     );
   }
 }
