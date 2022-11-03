@@ -42,6 +42,10 @@ class _TextFieldPageState extends State<TextFieldPage> {
           decoration: const InputDecoration(
             // Placeholder para poder darle feedback al usuario de que debe introducir
             hintText: 'Example: China...',
+            // Personalizacion del estilo del texto que tendra el placeholder
+            hintStyle: TextStyle(
+              color: Colors.black26
+            ),
             // Con este parametro hacemos que salga un texto que cuando pulsas en el textfield se mueva por si mismo hacia arriba
             label: Text('Search....'),
             // Cambiamos el padding del cursor para que se muestre a 8 pixeles del comienzo del textfield
