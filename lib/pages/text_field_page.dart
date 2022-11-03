@@ -54,12 +54,9 @@ class _TextFieldPageState extends State<TextFieldPage> {
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 8,
               ),
-              // Cambiamos la linea del borde del textfield UnderlineInputBorder es el valor por defecto y es el que hay que modificar para poder solventarlo
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Color(0xffd81b60),
-                ),
-              ),
+              // Cambiamos la linea del borde del textfield UnderlineInputBorder es el valor por defecto y es el que hay que
+              // modificar para poder solventarlo con InputBorder.none hacemos que desaparezcan todos los bordes
+              focusedBorder: InputBorder.none,
               // Cambiamos la linea del borde del textfield cuando el textfield NO esta con el foco
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
