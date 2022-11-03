@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:inputs/app_routes.dart';
+import 'package:inputs/utils/material_color_generator.dart';
 import 'pages/home_page.dart';
 
 void main() {
@@ -33,8 +34,10 @@ class MyApp extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         locale: DevicePreview.locale(context),
         theme: ThemeData(
-          // Este primarySwatch solo trabaja con colores de tipo MaterialColor no con colores
-          primarySwatch: Colors.green,
+          // Generamos una funcion para poder pasarle un color y que dicha funcion nos devuelva un material color
+          primarySwatch: generateMaterialColorByColor(
+            Color(0xffd81b60),
+          ),
         ),
         routes: appRoutes,
         home: HomePage(),
