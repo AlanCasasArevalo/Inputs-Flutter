@@ -26,17 +26,35 @@ class _TextFieldPageState extends State<TextFieldPage> {
       filteredList = _countries;
     } else {
       filteredList = _countries
-          .where((country) => country.name.toLowerCase().contains(_query.toLowerCase()))
+          .where((country) =>
+              country.name.toLowerCase().contains(_query.toLowerCase()))
           .toList();
     }
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: Colors.black
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         title: TextField(
+          // El parametro decoration nos permite customizar el textfield
+          decoration: InputDecoration(
+            // Cambiamos el padding del cursor para que se muestre a 8 pixeles del comienzo del textfield
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 8,
+            ),
+            // Cambiamos la linea del borde del textfield
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xffd81b60),
+              ),
+            ),
+            // Cambiamos la linea del borde del textfield cuando el textfield NO esta con el foco
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.black54,
+              ),
+            ),
+          ),
           onChanged: (textFieldChanged) {
             _query = textFieldChanged;
             setState(() {});
