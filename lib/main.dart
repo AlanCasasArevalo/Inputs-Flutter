@@ -18,15 +18,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      useInheritedMediaQuery: true,
-      builder: DevicePreview.appBuilder,
-      locale: DevicePreview.locale(context),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return GestureDetector(
+      onTap: () {
+        final focus = FocusScope.of(context);
+        // Se observa el widged hijo que tiene el foco
+        final focusedChild = focus.focusedChild;
+        // Se comprueba si el widget hijo tiene foco y si es el primero en tenerlo debido a que hay widgets que no pueden quitar el foco
+        if (focusedChild != null && !focusedChild.hasPrimaryFocus) {
+          focusedChild.unfocus();
+        }
+      },
+      child: MaterialApp(
+        useInheritedMediaQuery: true,
+        builder: DevicePreview.appBuilder,
+        locale: DevicePreview.locale(context),
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        routes: appRoutes,
+        home: HomePage(),
       ),
-      routes: appRoutes,
-      home: HomePage(),
     );
   }
 }

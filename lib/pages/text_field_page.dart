@@ -39,21 +39,16 @@ class _TextFieldPageState extends State<TextFieldPage> {
           },
         ),
       ),
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
+      body: ListView.builder(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+        itemBuilder: (context, index) {
+          final country = filteredList[index];
+          return Container(
+            color: Colors.green,
+            child: Text(country.name),
+          );
         },
-        child: ListView.builder(
-          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-          itemBuilder: (context, index) {
-            final country = filteredList[index];
-            return Container(
-              color: Colors.green,
-              child: Text(country.name),
-            );
-          },
-          itemCount: filteredList.length,
-        ),
+        itemCount: filteredList.length,
       ),
     );
   }
