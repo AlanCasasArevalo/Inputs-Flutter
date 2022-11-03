@@ -40,35 +40,28 @@ class _TextFieldPageState extends State<TextFieldPage> {
           enabled: true,
           // El parametro decoration nos permite customizar el textfield
           decoration: const InputDecoration(
-              // Placeholder para poder darle feedback al usuario de que debe introducir
-              hintText: 'Example: China...',
-              // Icono en el placeholder a la derecha
-              prefixIcon: Icon(Icons.search),
-              // Icono en el placeholder a la izquierda
-              suffixIcon: Icon(Icons.clear),
-              // Personalizacion del estilo del texto que tendra el placeholder
-              hintStyle: TextStyle(color: Colors.black26),
-              // Con este parametro hacemos que salga un texto que cuando pulsas en el textfield se mueva por si mismo hacia arriba
-              label: Text('Search....'),
-              // Cambiamos el padding del cursor para que se muestre a 8 pixeles del comienzo del textfield
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 8,
-              ),
-              // Cambiamos la linea del borde del textfield UnderlineInputBorder es el valor por defecto y es el que hay que
-              // modificar para poder solventarlo con InputBorder.none hacemos que desaparezcan todos los bordes
-              focusedBorder: InputBorder.none,
-              // Cambiamos la linea del borde del textfield cuando el textfield NO esta con el foco
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black54,
-                ),
-              ),
-              // Cambiamos la linea del borde del textfield cuando el textfield NO esta habilitado
-              disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black12,
-                ),
-              )),
+            // Placeholder para poder darle feedback al usuario de que debe introducir
+            hintText: 'Search....',
+            // Icono en el placeholder a la derecha
+            prefixIcon: Icon(Icons.search),
+            // Icono en el placeholder a la izquierda
+            suffixIcon: Icon(Icons.clear),
+            // Personalizacion del estilo del texto que tendra el placeholder
+            hintStyle: TextStyle(color: Colors.black26),
+            // Con este parametro hacemos que salga un texto que cuando pulsas en el textfield se mueva por si mismo hacia arriba
+            // Cambiamos el padding del cursor para que se muestre a 8 pixeles del comienzo del textfield
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 8,
+              vertical: 12
+            ),
+            // Cambiamos la linea del borde del textfield UnderlineInputBorder es el valor por defecto y es el que hay que
+            // modificar para poder solventarlo con InputBorder.none hacemos que desaparezcan todos los bordes
+            focusedBorder: InputBorder.none,
+            // Cambiamos la linea del borde del textfield cuando el textfield NO esta con el foco
+            enabledBorder: InputBorder.none,
+            // Cambiamos la linea del borde del textfield cuando el textfield NO esta habilitado
+            disabledBorder: InputBorder.none
+          ),
           onChanged: (textFieldChanged) {
             _query = textFieldChanged;
             setState(() {});
