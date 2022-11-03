@@ -17,6 +17,8 @@ class KeyboardTypesPage extends StatelessWidget {
               label: Text("Email"),
               border: OutlineInputBorder(),
             ),
+            // Te permite saltar al siguiente Textfield de haberlos no funcionan con los teclados NUMERICOS
+            textInputAction: TextInputAction.next,
           ),
           SizedBox(
             height: 16,
@@ -56,6 +58,10 @@ class KeyboardTypesPage extends StatelessWidget {
               label: Text("Name"),
               border: OutlineInputBorder(),
             ),
+            textInputAction: TextInputAction.go,
+            onSubmitted: (lastTextChanged) {
+              print('El ultimo campo de texto pulsado $lastTextChanged');
+            },
           ),
         ],
       ),
