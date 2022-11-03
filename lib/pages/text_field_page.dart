@@ -39,12 +39,12 @@ class _TextFieldPageState extends State<TextFieldPage> {
           // Se desactiva el textfield
           enabled: false,
           // El parametro decoration nos permite customizar el textfield
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             // Cambiamos el padding del cursor para que se muestre a 8 pixeles del comienzo del textfield
             contentPadding: EdgeInsets.symmetric(
               horizontal: 8,
             ),
-            // Cambiamos la linea del borde del textfield
+            // Cambiamos la linea del borde del textfield UnderlineInputBorder es el valor por defecto y es el que hay que modificar para poder solventarlo
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Color(0xffd81b60),
