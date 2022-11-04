@@ -23,8 +23,15 @@ class KeyboardTypesPage extends StatelessWidget {
             height: 16,
           ),
           TextField(
+            enabled: false,
             keyboardType: TextInputType.phone,
             decoration: InputDecoration(
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 2,
+                  color: Colors.black12,
+                ),
+              ),
               label: Text("Phone"),
             ),
           ),
@@ -33,11 +40,10 @@ class KeyboardTypesPage extends StatelessWidget {
           ),
           TextField(
             keyboardType: TextInputType.numberWithOptions(
-              // Para pasar decimales
-              decimal: true,
-              // Para poder anotar simbolos
-              signed: true
-            ),
+                // Para pasar decimales
+                decimal: true,
+                // Para poder anotar simbolos
+                signed: true),
             decoration: InputDecoration(
               label: Text("number"),
             ),
