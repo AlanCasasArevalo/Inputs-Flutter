@@ -51,5 +51,14 @@ ThemeData getThemeData(BuildContext context) {
       // Con este parametro cuadramos los radiobuttons de la app
       visualDensity: VisualDensity.compact,
     ),
+    switchTheme: SwitchThemeData(
+      overlayColor: MaterialStateProperty.all(Colors.amber),
+      // Este parametro modifica el color del cirulo del switch
+      thumbColor: MaterialStateProperty.all(Colors.red),
+      // Este parametro modifica el color de la barrita del switch
+      trackColor: MaterialStateProperty.all(Colors.yellow),
+      splashRadius: 40,
+      materialTapTargetSize: MaterialTapTargetSize.padded,
+    ),
   );
 }

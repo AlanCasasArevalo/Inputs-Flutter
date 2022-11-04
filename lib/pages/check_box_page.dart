@@ -67,6 +67,27 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
                     borderRadius: BorderRadius.circular(3),
                   ),
                 ),
+                Divider(),
+                // Switch
+                SwitchListTile(
+                  // Este parametro modifica el color del cirulo del switch cuando esta inactivo
+                inactiveThumbColor: Colors.blueAccent,
+                  // Este parametro modifica el color del cirulo del switch cuando esta activo
+                  activeColor: Colors.blueGrey,
+                  // Este parametro modifica el color de la barrita del switch cuando esta activo
+                  activeTrackColor: Colors.cyan,
+                  // Este parametro modifica el color de la barrita del switch cuando esta inactivo
+                  inactiveTrackColor: Colors.deepPurple,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  title: Text("Push notifications"),
+                  value: _checked,
+                  onChanged: (isChanged) {
+                    setState(() {
+                      _checked = isChanged;
+                    });
+                    print('🧨 $_checked');
+                  },
+                ),
                 MaterialButton(
                   // Si el valor de _checked es falso devuelve null el boton estar deshabiltado, debido a que al estar a nula la funcion es como si se desactivara el boton
                   onPressed: _checked ? () {} : null,
