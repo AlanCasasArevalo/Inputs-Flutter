@@ -47,7 +47,9 @@ class _TextFieldPageState extends State<TextFieldPage> {
           controller: _textEditingController,
           inputFormatters: [
             FilteringTextInputFormatter(
+              // El regex que queremos filtrar
               RegExp(r'([A-Z]|[a-z])'),
+              // El valor que permite del regex
               allow: true,
             )
           ],
