@@ -56,6 +56,10 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
                   fillColor: MaterialStateProperty.all(Colors.red),
                   // Sobre escribiendo los colores definidos para los checkbox de la app podemos cambiar el color del tick
                   checkColor: Colors.amber,
+                  // Sobre escribiendo el borde podemos cambiar el redondeado del checkbox
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3),
+                  ),
                 ),
                 MaterialButton(
                   // Si el valor de _checked es falso devuelve null el boton estar deshabiltado, debido a que al estar a nula la funcion es como si se desactivara el boton
