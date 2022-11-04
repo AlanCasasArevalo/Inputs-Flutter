@@ -68,6 +68,13 @@ class KeyboardTypesPage extends StatelessWidget {
               print('El ultimo campo de texto pulsado $lastTextChanged');
             },
           ),
+          SizedBox(
+            height: 16,
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text("Send"),
+          ),
         ],
       ),
     );
