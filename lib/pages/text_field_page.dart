@@ -25,6 +25,12 @@ class _TextFieldPageState extends State<TextFieldPage> {
   }
 
   @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     late final List<Country> filteredList;
 
