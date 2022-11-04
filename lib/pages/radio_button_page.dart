@@ -7,6 +7,7 @@ class RadioButtonPage extends StatefulWidget {
 
 class _RadioButtonPageState extends State<RadioButtonPage> {
   String? _better;
+  String? _gender;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +56,42 @@ class _RadioButtonPageState extends State<RadioButtonPage> {
             ),
             Divider(),
             Text('What is your gender?'),
+            // Si pasasemos la misma variable a los 4 _groupValue, serian de la misma pregunta
+            Row(
+              children: [
+                Radio<String>(
+                  value: 'Male',
+                  groupValue: _gender,
+                  onChanged: (textChanged) {
+                    setState(() {
+                      _gender = textChanged;
+                    });
+                  },
+                ),
+                Text(
+                  'Male',
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Radio<String>(
+                  // Debemos poner el valor del radio button
+                  value: 'Female',
+                  // El valor del grupo
+                  groupValue: _gender,
+                  // El cambio de valor
+                  onChanged: (textChanged) {
+                    setState(() {
+                      _gender = textChanged;
+                    });
+                  },
+                ),
+                Text(
+                  'Female',
+                ),
+              ],
+            ),
           ],
         ),
       ),
