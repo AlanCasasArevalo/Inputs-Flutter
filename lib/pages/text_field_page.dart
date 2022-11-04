@@ -51,6 +51,8 @@ class _TextFieldPageState extends State<TextFieldPage> {
               RegExp(r'([A-Z]|[a-z])'),
               // El valor que permite del regex
               allow: true,
+              // Remplaza el caracter no valido por un character vacio
+              replacementString: ''
             )
           ],
           enabled: true,
