@@ -52,6 +52,9 @@ class KeyboardTypesPage extends StatelessWidget {
             enableSuggestions: true,
             keyboardType: TextInputType.name,
             decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 1),
+              ),
               label: Text("Name"),
             ),
             textInputAction: TextInputAction.go,
