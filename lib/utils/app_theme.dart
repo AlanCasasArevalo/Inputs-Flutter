@@ -45,5 +45,11 @@ ThemeData getThemeData(BuildContext context) {
         Colors.pink.withOpacity(.4),
       ),
     ),
+    radioTheme: RadioThemeData(
+      // Con este parametro cambiamos el color de los radioButtons de la app
+      fillColor: MaterialStateProperty.all(Colors.red),
+      // Con este parametro cuadramos los radiobuttons de la app
+      visualDensity: VisualDensity.compact,
+    ),
   );
 }

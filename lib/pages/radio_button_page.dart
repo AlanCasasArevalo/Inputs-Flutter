@@ -32,6 +32,7 @@ class _RadioButtonPageState extends State<RadioButtonPage> {
             Text('Which is better?'),
             // El RadioListTile es similar al Radio, pero permite que sea directamente una celda completa
             RadioListTile<String>(
+              contentPadding: EdgeInsets.zero,
               value: 'Flutter',
               title: Text(
                 'Flutter',
@@ -40,6 +41,7 @@ class _RadioButtonPageState extends State<RadioButtonPage> {
               onChanged: _onBetterChanged,
             ),
             RadioListTile<String>(
+              contentPadding: EdgeInsets.zero,
               value: 'React-native',
               title: Text(
                 'React-native',
@@ -50,6 +52,7 @@ class _RadioButtonPageState extends State<RadioButtonPage> {
             Divider(),
             Text('What is your gender?'),
             RadioListTile<String>(
+              contentPadding: EdgeInsets.zero,
               title: Text(
                 'Male',
               ),
@@ -58,6 +61,7 @@ class _RadioButtonPageState extends State<RadioButtonPage> {
               onChanged: _onGenderChanged,
             ),
             RadioListTile<String>(
+              contentPadding: EdgeInsets.zero,
               title: Text(
                 'Female',
               ),
