@@ -11,6 +11,12 @@ ThemeData getThemeData(BuildContext context) {
     colorScheme: ColorScheme.light(
       primary: primaryColor
     ),
+    /*
+    Este parametro sirve para cambiar el color de todas las label de los textfields
+    Esto puede afectar a todos los widgets que usen dicha configuracion o sea que pueden tener un color
+    que no sea el que queremos teniendo que sobreeescribir dicho estilo mas tarde dentro del widget en concreto
+     */
+    hintColor: Colors.black26,
     inputDecorationTheme: InputDecorationTheme(
       focusedBorder: OutlineInputBorder(
         // Se quita el borde redondeado a las esquinas de los textfields
