@@ -9,6 +9,8 @@ ThemeData getThemeData(BuildContext context) {
     ),
     inputDecorationTheme: InputDecorationTheme(
       enabledBorder: OutlineInputBorder(
+        // Cambiamos el ancho de todos los textfields
+          borderSide: BorderSide(width: 2)
       ),
     ),
   );
