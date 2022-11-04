@@ -8,9 +8,13 @@ ThemeData getThemeData(BuildContext context) {
       primaryColor,
     ),
     inputDecorationTheme: InputDecorationTheme(
+      // Este campo sirve para que todos los textfield tengan su label con un color determinado
+      floatingLabelStyle: TextStyle(
+        color: Colors.amber
+      ),
       focusedBorder: OutlineInputBorder(
         // Se quita el borde redondeado a las esquinas de los textfields
-        borderRadius: BorderRadius.circular(0),
+        borderRadius: BorderRadius.circular(8),
         // Cambiamos el ancho de todos los textfields
         borderSide: BorderSide(
           width: 2,
@@ -20,7 +24,7 @@ ThemeData getThemeData(BuildContext context) {
       ),
       enabledBorder: OutlineInputBorder(
           // Se quita el borde redondeado a las esquinas de los textfields
-          borderRadius: BorderRadius.circular(0),
+          borderRadius: BorderRadius.circular(8),
           // Cambiamos el ancho de todos los textfields
           borderSide: BorderSide(width: 2)),
     ),
