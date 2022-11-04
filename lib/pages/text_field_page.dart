@@ -53,7 +53,9 @@ class _TextFieldPageState extends State<TextFieldPage> {
                 onPressed: () {
                   _textEditingController.text = '';
                   _query = '';
-                  setState(() {});
+                  // Cuando se muestra o se esconde el teclado toda la vista es renderizada por eso no nos hace falta el setState
+                  FocusScope.of(context).unfocus();
+                  // setState(() {});
                 },
               ),
               hintStyle: TextStyle(color: Colors.black26),
