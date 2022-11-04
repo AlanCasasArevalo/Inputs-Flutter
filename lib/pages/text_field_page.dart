@@ -47,12 +47,9 @@ class _TextFieldPageState extends State<TextFieldPage> {
           controller: _textEditingController,
           inputFormatters: [
             // Mismo comportamiento solo permite la expresion regular en este caso solo letras mayusculas o minusculas
+            // No es adecuado usar varios filtros porque pueden entrar en conflicto unas con otras
             FilteringTextInputFormatter.allow(
               RegExp(r'([A-Z]|[a-z])'),
-            ),
-            // No se permiten caracteres que cumplan con el regex
-            FilteringTextInputFormatter.deny(
-              RegExp(r'([0-9])'),
             ),
           ],
           enabled: true,
