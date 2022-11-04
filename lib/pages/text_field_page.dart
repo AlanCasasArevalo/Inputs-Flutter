@@ -8,7 +8,7 @@ class TextFieldPage extends StatefulWidget {
 }
 
 class _TextFieldPageState extends State<TextFieldPage> {
-  final TextEditingController _textEditingController = TextEditingController();
+  final _textEditingController = TextEditingController();
   late final List<Country> _countries;
   String _query = '';
 
@@ -17,11 +17,6 @@ class _TextFieldPageState extends State<TextFieldPage> {
     super.initState();
     _countries =
         countries.map<Country>((country) => Country.fromJson(country)).toList();
-    _textEditingController.addListener(
-      () {
-        print('🧨');
-      },
-    );
   }
 
   @override
@@ -50,10 +45,17 @@ class _TextFieldPageState extends State<TextFieldPage> {
         title: TextField(
           controller: _textEditingController,
           enabled: true,
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
               hintText: 'Search....',
               prefixIcon: Icon(Icons.search),
-              suffixIcon: Icon(Icons.clear),
+              suffixIcon: IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () {
+                  _textEditingController.text = '';
+                  _query = '';
+                  setState(() {});
+                },
+              ),
               hintStyle: TextStyle(color: Colors.black26),
               contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
               focusedBorder: InputBorder.none,
