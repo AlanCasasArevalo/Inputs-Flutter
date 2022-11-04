@@ -31,6 +31,7 @@ class KeyboardTypesPage extends StatelessWidget {
                   width: 2,
                   color: Colors.black12,
                 ),
+                borderRadius: BorderRadius.circular(0),
               ),
               label: Text("Phone"),
             ),
@@ -59,6 +60,7 @@ class KeyboardTypesPage extends StatelessWidget {
             keyboardType: TextInputType.name,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(0),
                 borderSide: BorderSide(width: 1),
               ),
               label: Text("Name"),
