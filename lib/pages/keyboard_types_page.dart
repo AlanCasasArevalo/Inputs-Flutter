@@ -15,7 +15,6 @@ class KeyboardTypesPage extends StatelessWidget {
             decoration: InputDecoration(
               // Para poner un titulo al Textfield
               label: Text("Email"),
-              border: OutlineInputBorder(),
             ),
             // Te permite saltar al siguiente Textfield de haberlos no funcionan con los teclados NUMERICOS
             textInputAction: TextInputAction.next,
@@ -27,7 +26,6 @@ class KeyboardTypesPage extends StatelessWidget {
             keyboardType: TextInputType.phone,
             decoration: InputDecoration(
               label: Text("Phone"),
-              border: OutlineInputBorder(),
             ),
           ),
           SizedBox(
@@ -42,7 +40,6 @@ class KeyboardTypesPage extends StatelessWidget {
             ),
             decoration: InputDecoration(
               label: Text("number"),
-              border: OutlineInputBorder(),
             ),
           ),
           SizedBox(
@@ -56,7 +53,6 @@ class KeyboardTypesPage extends StatelessWidget {
             keyboardType: TextInputType.name,
             decoration: InputDecoration(
               label: Text("Name"),
-              border: OutlineInputBorder(),
             ),
             textInputAction: TextInputAction.go,
             onSubmitted: (lastTextChanged) {

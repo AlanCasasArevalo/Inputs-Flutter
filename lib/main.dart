@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:inputs/app_routes.dart';
+import 'package:inputs/utils/app_theme.dart';
 import 'package:inputs/utils/material_color_generator.dart';
 import 'pages/home_page.dart';
 
@@ -33,12 +34,7 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         builder: DevicePreview.appBuilder,
         locale: DevicePreview.locale(context),
-        theme: ThemeData(
-          // Generamos una funcion para poder pasarle un color y que dicha funcion nos devuelva un material color
-          primarySwatch: generateMaterialColorByColor(
-            Color(0xffd81b60),
-          ),
-        ),
+        theme: getThemeData(context),
         routes: appRoutes,
         home: HomePage(),
       ),
