@@ -42,6 +42,21 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
                     print('🧨 $_checked');
                   },
                 ),
+                Checkbox(
+                  value: _checked,
+                  onChanged: (isChanged) {
+                    if (isChanged != null) {
+                      setState(() {
+                        _checked = isChanged;
+                      });
+                    }
+                    print('🧨 $_checked');
+                  },
+                  // Sobre escribiendo los colores definidos para los checkbox de la app podemos cambiar el color de fondo del checkbox
+                  fillColor: MaterialStateProperty.all(Colors.red),
+                  // Sobre escribiendo los colores definidos para los checkbox de la app podemos cambiar el color del tick
+                  checkColor: Colors.amber,
+                ),
                 MaterialButton(
                   // Si el valor de _checked es falso devuelve null el boton estar deshabiltado, debido a que al estar a nula la funcion es como si se desactivara el boton
                   onPressed: _checked ? () {} : null,
