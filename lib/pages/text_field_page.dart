@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../models/country.dart';
 import '../constants/countries.dart';
 
@@ -44,6 +45,12 @@ class _TextFieldPageState extends State<TextFieldPage> {
         iconTheme: IconThemeData(color: Colors.black),
         title: TextField(
           controller: _textEditingController,
+          inputFormatters: [
+            FilteringTextInputFormatter(
+              RegExp(r'([A-Z]|[a-z])'),
+              allow: true,
+            )
+          ],
           enabled: true,
           decoration: InputDecoration(
               hintText: 'Search....',
