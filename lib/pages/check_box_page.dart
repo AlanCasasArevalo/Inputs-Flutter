@@ -6,6 +6,8 @@ class CheckBoxPage extends StatefulWidget {
 }
 
 class _CheckBoxPageState extends State<CheckBoxPage> {
+  bool _checked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,14 +30,23 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
                 ''',
                 ),
                 Checkbox(
-                  // Valor que se debe pasar en caso de que no tengamos un valor predefinido en value
-                  tristate: true,
-                    // Valor que representa el checkbox
-                    value: null,
-                    // Funcion que se ha de pasar con el valor del booleano que llega por callback
-                    onChanged: (isChanged) {
-                      print('🧨');
-                    })
+                  // Valor que representa el checkbox
+                  value: _checked,
+                  // Funcion que se ha de pasar con el valor del booleano que llega por callback
+                  onChanged: (isChanged) {
+                    if (isChanged != null) {
+                      setState(() {
+                        _checked = isChanged;
+                      });
+                    }
+                    print('🧨 $_checked');
+                  },
+                ),
+                MaterialButton(
+                  // Si el valor de _checked es falso devuelve null el boton estar deshabiltado, debido a que al estar a nula la funcion es como si se desactivara el boton
+                  onPressed: _checked ? () {} : null,
+                  child: Text("Next"),
+                ),
               ],
             ),
           ),
