@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:inputs/utils/capitalize_input_formatter.dart';
 import '../models/country.dart';
 import '../constants/countries.dart';
 
@@ -51,6 +52,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
             FilteringTextInputFormatter.allow(
               RegExp(r'^[a-zA-Z\s]*$'),
             ),
+            CapitalizeInputFormatter(),
           ],
           enabled: true,
           decoration: InputDecoration(
