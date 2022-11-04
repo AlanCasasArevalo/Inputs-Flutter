@@ -50,6 +50,10 @@ class _TextFieldPageState extends State<TextFieldPage> {
             FilteringTextInputFormatter.allow(
               RegExp(r'([A-Z]|[a-z])'),
             ),
+            // No se permiten caracteres que cumplan con el regex
+            FilteringTextInputFormatter.deny(
+              RegExp(r'([0-9])'),
+            ),
           ],
           enabled: true,
           decoration: InputDecoration(
