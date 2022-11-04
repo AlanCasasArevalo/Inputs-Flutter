@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:inputs/utils/material_color_generator.dart';
 
 ThemeData getThemeData(BuildContext context) {
-  final primaryColor = Color(0xffFafafa);
+  final primaryColor = Colors.blueAccent;
   return ThemeData(
-    primaryColor: generateMaterialColorByColor(
+    primarySwatch: generateMaterialColorByColor(
       primaryColor,
     ),
+    // Se cambia el color del schema
+    colorScheme: ColorScheme.light(
+      primary: primaryColor
+    ),
     inputDecorationTheme: InputDecorationTheme(
-      // Este campo sirve para que todos los textfield tengan su label con un color determinado
-      floatingLabelStyle: TextStyle(
-        color: Colors.amber
-      ),
       focusedBorder: OutlineInputBorder(
         // Se quita el borde redondeado a las esquinas de los textfields
         borderRadius: BorderRadius.circular(8),
