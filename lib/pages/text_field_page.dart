@@ -10,7 +10,6 @@ class TextFieldPage extends StatefulWidget {
 class _TextFieldPageState extends State<TextFieldPage> {
   final _textEditingController = TextEditingController();
   late final List<Country> _countries;
-  String _query = '';
 
   @override
   void initState() {
@@ -28,13 +27,14 @@ class _TextFieldPageState extends State<TextFieldPage> {
   @override
   Widget build(BuildContext context) {
     late final List<Country> filteredList;
+    final query = _textEditingController.text;
 
-    if (_query.isEmpty) {
+    if (query.isEmpty) {
       filteredList = _countries;
     } else {
       filteredList = _countries
           .where((country) =>
-              country.name.toLowerCase().contains(_query.toLowerCase()))
+              country.name.toLowerCase().contains(query.toLowerCase()))
           .toList();
     }
 
@@ -52,10 +52,8 @@ class _TextFieldPageState extends State<TextFieldPage> {
                 icon: Icon(Icons.close),
                 onPressed: () {
                   _textEditingController.text = '';
-                  _query = '';
                   // Cuando se muestra o se esconde el teclado toda la vista es renderizada por eso no nos hace falta el setState
                   FocusScope.of(context).unfocus();
-                  // setState(() {});
                 },
               ),
               hintStyle: TextStyle(color: Colors.black26),
@@ -63,8 +61,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
               focusedBorder: InputBorder.none,
               enabledBorder: InputBorder.none,
               disabledBorder: InputBorder.none),
-          onChanged: (textFieldChanged) {
-            _query = textFieldChanged;
+          onChanged: (_) {
             setState(() {});
           },
         ),
