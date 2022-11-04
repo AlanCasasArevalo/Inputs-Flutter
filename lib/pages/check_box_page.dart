@@ -29,10 +29,11 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
                   desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 ''',
                 ),
-                Checkbox(
-                  // Valor que representa el checkbox
+                // Este widget nos permite poner el text y el checkbox en un solo lugar pudiendo pulstar tanto en el texto como en el checkbox para poder hacer el cambio de la logica
+                CheckboxListTile(
+                  // Posicionamiento del checkbox respecto al texto
+                  controlAffinity: ListTileControlAffinity.leading,
                   value: _checked,
-                  // Funcion que se ha de pasar con el valor del booleano que llega por callback
                   onChanged: (isChanged) {
                     if (isChanged != null) {
                       setState(() {
@@ -41,6 +42,39 @@ class _CheckBoxPageState extends State<CheckBoxPage> {
                     }
                     print('🧨 $_checked');
                   },
+                  title: Text(
+                    "I accept Terms policy, I accept Terms policy",
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _checked = !_checked;
+                    });
+                  },
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        // Valor que representa el checkbox
+                        value: _checked,
+                        // Funcion que se ha de pasar con el valor del booleano que llega por callback
+                        onChanged: (isChanged) {
+                          if (isChanged != null) {
+                            setState(() {
+                              _checked = isChanged;
+                            });
+                          }
+                          print('🧨 $_checked');
+                        },
+                      ),
+                      // si el Texto se hace excesivamente largo se puede poner o bien en un Expanded o bien en un Flexible
+                      Flexible(
+                        child: Text(
+                          "I accept Terms policy, I accept Terms policy, I accept Terms policy, I accept Terms policy, ",
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 Checkbox(
                   value: _checked,
