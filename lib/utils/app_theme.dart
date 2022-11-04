@@ -9,6 +9,8 @@ ThemeData getThemeData(BuildContext context) {
     ),
     inputDecorationTheme: InputDecorationTheme(
       enabledBorder: OutlineInputBorder(
+        // Se quita el borde redondeado a las esquinas de los textfields
+        borderRadius: BorderRadius.circular(0),
         // Cambiamos el ancho de todos los textfields
           borderSide: BorderSide(width: 2)
       ),
