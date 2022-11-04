@@ -8,12 +8,21 @@ ThemeData getThemeData(BuildContext context) {
       primaryColor,
     ),
     inputDecorationTheme: InputDecorationTheme(
-      enabledBorder: OutlineInputBorder(
+      focusedBorder: OutlineInputBorder(
         // Se quita el borde redondeado a las esquinas de los textfields
         borderRadius: BorderRadius.circular(0),
         // Cambiamos el ancho de todos los textfields
-          borderSide: BorderSide(width: 2)
+        borderSide: BorderSide(
+          width: 2,
+          // Ponemos el textfield que tiene el foco en color amber
+          color: Colors.amber,
+        ),
       ),
+      enabledBorder: OutlineInputBorder(
+          // Se quita el borde redondeado a las esquinas de los textfields
+          borderRadius: BorderRadius.circular(0),
+          // Cambiamos el ancho de todos los textfields
+          borderSide: BorderSide(width: 2)),
     ),
   );
 }
