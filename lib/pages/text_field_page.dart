@@ -46,14 +46,10 @@ class _TextFieldPageState extends State<TextFieldPage> {
         title: TextField(
           controller: _textEditingController,
           inputFormatters: [
-            FilteringTextInputFormatter(
-              // El regex que queremos filtrar
+            // Mismo comportamiento solo permite la expresion regular en este caso solo letras mayusculas o minusculas
+            FilteringTextInputFormatter.allow(
               RegExp(r'([A-Z]|[a-z])'),
-              // El valor que permite del regex
-              allow: true,
-              // Remplaza el caracter no valido por un character vacio
-              replacementString: ''
-            )
+            ),
           ],
           enabled: true,
           decoration: InputDecoration(
