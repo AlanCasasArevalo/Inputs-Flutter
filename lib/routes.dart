@@ -6,4 +6,5 @@ class Routes {
   static const radio_button = '/radio-button';
   static const slider = '/slider';
   static const calendar = '/calendar';
+  static const cupertino_calendar = '/cupertino-calendar';
 }
