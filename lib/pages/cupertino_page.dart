@@ -7,11 +7,12 @@ class CupertinoCalendarPage extends StatefulWidget {
 }
 
 class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
-  DateTime _date = DateTime.now();
+  late DateTime _date;
 
   @override
   void initState() {
     super.initState();
+    _date = DateTime(2021);
   }
 
   @override
