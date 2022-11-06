@@ -23,8 +23,12 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
       body: SafeArea(
         child: Column(
           children: [
-            CupertinoDatePicker(
-                onDateTimeChanged: _onDateTimeChanged
+            // El widget CupertinoDatePicker necesita un contenedor que defina sus medidas para poder ser renderizado
+            SizedBox(
+              height: 400,
+              child: CupertinoDatePicker(
+                  onDateTimeChanged: _onDateTimeChanged
+              ),
             ),
           ],
         ),
