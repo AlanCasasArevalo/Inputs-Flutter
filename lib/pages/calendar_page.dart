@@ -30,7 +30,7 @@ class _CalendarPageState extends State<CalendarPage> {
       body: SafeArea(
         child: CalendarDatePicker(
           // Con esta opcion lo que hacemos es que al seleccionar el calendario salga seleccionados los años en vez del calendario normal
-          initialCalendarMode: DatePickerMode.year,
+          initialCalendarMode: DatePickerMode.day,
           // El año en la que se posiciona el calendario (puede o no coincidir con la fecha en la que se comienza el datepicker
           initialDate: _date,
           // El año con la que se comienza el calendario OJO SI SELECCIONAS UNA FECHA Y LUEGO CAMBIAS EL CALENDARIO PARA QUE EMPIECE EN UNA FECHA POSTERIOR, TENDRAS QUE HACER UN HOT RELOAD IGUAL EN LA FECHA DE FIN
@@ -41,6 +41,10 @@ class _CalendarPageState extends State<CalendarPage> {
           onDateChanged: (date) {
             _date = date;
             print(date);
+          },
+          // Con esta funcion lo que hacemos es deshabilitar los dias sabados y domingos OJO SI HACEMOS ESTA DESHABILITACION, hay que tener en cuenta el initialDate, no puede empezar en un dia que este deshabilitado
+          selectableDayPredicate: (date) {
+            return date.weekday != 7 && date.weekday != 6;
           },
         ),
       ),
