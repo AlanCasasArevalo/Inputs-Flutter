@@ -26,6 +26,14 @@ class _SliderPageState extends State<SliderPage> {
                   trackHeight: 4
                 ),
                 child: Slider(
+                  // Esta funcion nos dice en que valor empezo el slider
+                  onChangeStart: (startValue) {
+                    print('Se comenzo en este valor $startValue');
+                  },
+                  // Esta funcion nos dice en que valor termino el slider
+                  onChangeEnd: (endValue) {
+                    print('Se termino en este valor $endValue');
+                  },
                   // Cambia el color del boton del slider
                 thumbColor: Colors.yellow,
                   label: '$_value2',
