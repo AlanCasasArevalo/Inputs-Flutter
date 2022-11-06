@@ -60,5 +60,24 @@ ThemeData getThemeData(BuildContext context) {
       splashRadius: 40,
       materialTapTargetSize: MaterialTapTargetSize.padded,
     ),
+    sliderTheme: SliderThemeData(
+      // Cambia la barra del slider
+      activeTrackColor: Colors.pink,
+      // Cambia la boton del slider
+      thumbColor: Colors.pinkAccent,
+      // Cambia la sombra que hay cuando mantienes el slider pulsado
+      overlayColor: Colors.cyan.withOpacity(.2),
+      // Cambia el color de la etiqueta que muestra el valor del slider
+      valueIndicatorColor: Colors.deepPurple.withOpacity(0.4),
+      // Cambia la barra del slider cuando esta inactiva
+      inactiveTrackColor: Colors.pink.withOpacity(.1),
+      // Cambia el tamaño de barra del slider
+      trackHeight: 15,
+      inactiveTickMarkColor: Colors.white54,
+      // Cambia la boton del slider cambiando el tamaño
+      thumbShape: RoundSliderThumbShape(
+        enabledThumbRadius: 15
+      ),
+    ),
   );
 }
