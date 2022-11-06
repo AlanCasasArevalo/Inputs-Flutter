@@ -21,9 +21,18 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
       appBar: AppBar(
       ),
       body: SafeArea(
-        child: Container(),
+        child: Column(
+          children: [
+            CupertinoDatePicker(
+                onDateTimeChanged: _onDateTimeChanged
+            ),
+          ],
+        ),
       ),
     );
   }
 
+  void _onDateTimeChanged (DateTime dateTime) {
+
+  }
 }
