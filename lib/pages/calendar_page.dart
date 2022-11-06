@@ -40,8 +40,8 @@ class _CalendarPageState extends State<CalendarPage> {
           initialDate: _date,
           // El año con la que se comienza el calendario OJO SI SELECCIONAS UNA FECHA Y LUEGO CAMBIAS EL CALENDARIO PARA QUE EMPIECE EN UNA FECHA POSTERIOR, TENDRAS QUE HACER UN HOT RELOAD IGUAL EN LA FECHA DE FIN
           firstDate: DateTime(1900),
-          // El año con la que se termina el calendario
-          lastDate: DateTime.now(),
+          // Fecha con la que se termina el calendario
+          lastDate: DateTime.now().add(Duration(days: 10)),
           // La funcion nos devuelve la fecha cuando seleccionamos una
           onDateChanged: (date) {
             _date = date;
@@ -49,6 +49,9 @@ class _CalendarPageState extends State<CalendarPage> {
           },
           // Con esta funcion lo que hacemos es deshabilitar los dias sabados y domingos OJO SI HACEMOS ESTA DESHABILITACION, hay que tener en cuenta el initialDate, no puede empezar en un dia que este deshabilitado
           selectableDayPredicate: _selectableDayPredicate,
+          // Fecha actual, o sea el dia en el que se esta
+          currentDate: DateTime.now(),
+
         ),
       ),
     );
