@@ -5,4 +5,5 @@ class Routes {
   static const check_box = '/check-box';
   static const radio_button = '/radio-button';
   static const slider = '/slider';
+  static const calendar = '/calendar';
 }
