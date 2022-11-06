@@ -20,17 +20,25 @@ class _SliderPageState extends State<SliderPage> {
           height: double.infinity,
           child: Column(
             children: [
-              Slider(
-                label: '$_value2',
-                value: _value2,
-                min: 0,
-                max: 20,
-                divisions: 20,
-                onChanged: (valueChanged) {
-                  setState(() {
-                    _value2 = valueChanged.floorToDouble();
-                  });
-                },
+              // Para customizar el slider hay que usar un SliderTheme para que se pueda customizar de manera unica
+              SliderTheme(
+                data: SliderThemeData(
+                  trackHeight: 4
+                ),
+                child: Slider(
+                  // Cambia el color del boton del slider
+                thumbColor: Colors.yellow,
+                  label: '$_value2',
+                  value: _value2,
+                  min: 0,
+                  max: 20,
+                  divisions: 20,
+                  onChanged: (valueChanged) {
+                    setState(() {
+                      _value2 = valueChanged.floorToDouble();
+                    });
+                  },
+                ),
               ),
               Row(
                 children: [
