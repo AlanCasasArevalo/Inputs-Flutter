@@ -22,8 +22,7 @@ class _CalendarPageState extends State<CalendarPage> {
       appBar: AppBar(
         actions: [
           IconButton(
-            onPressed: _date == _initialDate ? null : () {
-            },
+            onPressed: _save,
             icon: Icon(Icons.save),
           ),
         ],
@@ -38,13 +37,18 @@ class _CalendarPageState extends State<CalendarPage> {
           lastDate: DateTime.now(),
           // La funcion nos devuelve la fecha cuando seleccionamos una
           onDateChanged: (date) {
-            setState(() {
-              _date = date;
-              print(date);
-            });
+            _date = date;
+            print(date);
           },
         ),
       ),
     );
+  }
+
+  void _save() {
+    if (_initialDate != _date) {
+      print(_date);
+    }
+    Navigator.pop(context);
   }
 }
