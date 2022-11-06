@@ -14,6 +14,11 @@ class _CalendarPageState extends State<CalendarPage> {
     super.initState();
     _initialDate = DateTime(1980, 12, 11);
     _date = _initialDate;
+    // Con esta recursividad solventamos el conflicto con la pantalla roja si coinciden los dias que no se puede seleccionar con la fecha inicial
+    while(!_selectableDayPredicate(_initialDate)) {
+      _initialDate = _initialDate.add(Duration(days: 1));
+      _date = _initialDate;
+    }
   }
 
   @override
@@ -43,12 +48,14 @@ class _CalendarPageState extends State<CalendarPage> {
             print(date);
           },
           // Con esta funcion lo que hacemos es deshabilitar los dias sabados y domingos OJO SI HACEMOS ESTA DESHABILITACION, hay que tener en cuenta el initialDate, no puede empezar en un dia que este deshabilitado
-          selectableDayPredicate: (date) {
-            return date.weekday != 7 && date.weekday != 6;
-          },
+          selectableDayPredicate: _selectableDayPredicate,
         ),
       ),
     );
+  }
+
+  bool _selectableDayPredicate(DateTime dateTime) {
+    return dateTime.weekday != 7 && dateTime.weekday != 6;
   }
 
   void _save() {
