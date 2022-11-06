@@ -18,8 +18,7 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
+      appBar: AppBar(),
       body: SafeArea(
         child: Column(
           children: [
@@ -27,7 +26,13 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
             SizedBox(
               height: 400,
               child: CupertinoDatePicker(
-                  onDateTimeChanged: _onDateTimeChanged
+                onDateTimeChanged: _onDateTimeChanged,
+                // Con este paremtro lo que permitimos es cambiar el modo en el que se ve el datepicker
+                mode: CupertinoDatePickerMode.date,
+                // Con este parametro hacemos que el usuario solo pueda seleccionar hasta la fecha puesta en este parmetro
+                maximumDate: DateTime.now().add(
+                  Duration(days: 7),
+                ),
               ),
             ),
           ],
@@ -36,7 +41,5 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
     );
   }
 
-  void _onDateTimeChanged (DateTime dateTime) {
-
-  }
+  void _onDateTimeChanged(DateTime dateTime) {}
 }
