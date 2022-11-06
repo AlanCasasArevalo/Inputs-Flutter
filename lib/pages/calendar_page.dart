@@ -55,6 +55,7 @@ class _CalendarPageState extends State<CalendarPage> {
   }
 
   bool _selectableDayPredicate(DateTime dateTime) {
+    // No se permiten ni sabados ni domingos
     return dateTime.weekday != 7 && dateTime.weekday != 6;
   }
 
