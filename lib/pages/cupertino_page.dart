@@ -25,6 +25,7 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
             // El widget CupertinoDatePicker necesita un contenedor que defina sus medidas para poder ser renderizado
             SizedBox(
               height: 400,
+              // Limitante en este widget no podemos deshabilitar fechas 🤦🏻‍♂️
               child: CupertinoDatePicker(
                 onDateTimeChanged: _onDateTimeChanged,
                 // Con este paremtro lo que permitimos es cambiar el modo en el que se ve el datepicker
@@ -33,6 +34,10 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
                 maximumDate: DateTime.now().add(
                   Duration(days: 7),
                 ),
+                // Fecha inicial
+                initialDateTime: DateTime(2020),
+                // Fecha minima a la que se permite al usuario seleccionar
+                minimumDate: DateTime(2000),
               ),
             ),
           ],
