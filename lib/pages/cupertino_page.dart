@@ -7,8 +7,7 @@ class CupertinoCalendarPage extends StatefulWidget {
 }
 
 class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
-  late DateTime _date;
-  late DateTime _initialDate;
+  DateTime _date = DateTime.now();
 
   @override
   void initState() {
@@ -18,7 +17,14 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: _date == null ? null : _onPressed,
+            icon: Icon(Icons.save),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -35,7 +41,7 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
                   Duration(days: 7),
                 ),
                 // Fecha inicial
-                initialDateTime: DateTime(2020),
+                initialDateTime: _date,
                 // Fecha minima a la que se permite al usuario seleccionar
                 minimumDate: DateTime(2000),
               ),
@@ -46,5 +52,13 @@ class _CupertinoCalendarPageState extends State<CupertinoCalendarPage> {
     );
   }
 
-  void _onDateTimeChanged(DateTime dateTime) {}
+  void _onPressed() {
+    setState(() {});
+  }
+
+  void _onDateTimeChanged(DateTime dateTime) {
+    setState(() {
+      _date = dateTime;
+    });
+  }
 }
