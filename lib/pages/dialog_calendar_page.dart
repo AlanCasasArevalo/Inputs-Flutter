@@ -95,9 +95,17 @@ class _DialogCalendarPageState extends State<DialogCalendarPage> {
   }
 
   Future<void> _selectTime() async {
+    // Esta funcion hace que salga un selector de hora en vez de un selector de dia
     final time = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
+      builder: (_, child) {
+        // Con esto evitamos que el dialogo sea cerrado con el boton atras de android o pulsando fuera del dialog
+        return WillPopScope(
+          child: child!,
+          onWillPop: () async => false,
+        );
+      }
     );
     if (time != null) {
       setState(() {
