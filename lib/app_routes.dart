@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inputs/pages/check_box_page.dart';
+import 'package:inputs/pages/dialog_calendar_page.dart';
 import 'pages/calendar_page.dart';
 import 'pages/cupertino_page.dart';
 import 'pages/keyboard_types_page.dart';
@@ -17,5 +18,6 @@ Map<String, Widget Function(BuildContext)> get appRoutes {
     Routes.slider: (context) => SliderPage(),
     Routes.calendar: (context) => CalendarPage(),
     Routes.cupertino_calendar: (context) => CupertinoCalendarPage(),
+    Routes.dialog_calendar: (context) => DialogCalendarPage(),
   };
 }
