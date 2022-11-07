@@ -84,7 +84,18 @@ class _DialogCalendarPageState extends State<DialogCalendarPage> {
       // El año con la que se comienza el calendario OJO SI SELECCIONAS UNA FECHA Y LUEGO CAMBIAS EL CALENDARIO PARA QUE EMPIECE EN UNA FECHA POSTERIOR, TENDRAS QUE HACER UN HOT RELOAD IGUAL EN LA FECHA DE FIN
       firstDate: DateTime(1900),
       // Fecha con la que se termina el calendario
-      lastDate: DateTime.now().add(Duration(days: 10)),
+      lastDate: DateTime.now().add(
+        Duration(days: 10),
+      ),
+      builder: (_, child) {
+        // Con esto evitamos que el dialogo sea cerrado con el boton atras de android o pulsando fuera del dialog
+        return WillPopScope(
+          child: child!,
+          onWillPop: () async => false,
+        );
+      },
+      // Con este parametro cambiamos la apariencia de la entrada de fecha
+      initialEntryMode: DatePickerEntryMode.input,
     );
 
     if (date != null) {
@@ -105,7 +116,15 @@ class _DialogCalendarPageState extends State<DialogCalendarPage> {
           child: child!,
           onWillPop: () async => false,
         );
-      }
+      },
+      // Con este parametro cambiamos la apariencia de la entrada de tiempo
+      initialEntryMode: TimePickerEntryMode.inputOnly,
+      // Customizando los textos de la pantalla
+      cancelText: "Cancelarrrr",
+      confirmText: "Vale",
+      hourLabelText: "La horaaa",
+      minuteLabelText: "Los minutooos",
+      helpText: "Metemos una hora valida",
     );
     if (time != null) {
       setState(() {
